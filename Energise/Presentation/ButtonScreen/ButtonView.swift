@@ -2,7 +2,7 @@
 //  ButtonView.swift
 //  Energise
 //
-//  Created by Andrew Kasilov on 28.04.2024.
+//  Created by Andrew Kasilov on 29.04.2024.
 //
 
 import SnapKit
@@ -18,7 +18,7 @@ enum ButtonViewAction {
 }
 
 final class ButtonView: UIView {
-  private enum ButtonState {
+    private enum ButtonState {
         case play
         case pause
     }
@@ -35,6 +35,7 @@ final class ButtonView: UIView {
         configuration.titlePadding = 10
         configuration.imagePadding = 10
         configuration.background.cornerRadius = 100
+        configuration.baseBackgroundColor = .blue
         let button = UIButton(configuration: configuration)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
@@ -46,7 +47,7 @@ final class ButtonView: UIView {
         label.backgroundColor = .blue
         label.textColor = .white
         label.text = "00:00:00"
-        label.contentMode = .center
+        label.textAlignment = .center
         return label
     }()
     
@@ -56,7 +57,6 @@ final class ButtonView: UIView {
     // - MARK: internal
     weak var delegate: ButtonViewProtocol?
     
-
     // - MARK: Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,7 +74,9 @@ final class ButtonView: UIView {
         container.font = UIFont.boldSystemFont(ofSize: 30)
         button.configuration?.attributedTitle = AttributedString("Pause", attributes: container)
         button.configuration?.image = UIImage(systemName: "pause.fill")
-        beginAnimation()
+        
+        timerLabel.layer.removeAllAnimations()
+        beginAnimation(childView: button)
     }
     
     func pause() {
@@ -82,7 +84,9 @@ final class ButtonView: UIView {
         container.font = UIFont.boldSystemFont(ofSize: 30)
         button.configuration?.attributedTitle = AttributedString("Play", attributes: container)
         button.configuration?.image = UIImage(systemName: "play.fill")
+        
         button.layer.removeAllAnimations()
+        beginAnimation(childView: timerLabel)
     }
     
     func updateTimerLabel(_ time: String) {
@@ -103,6 +107,7 @@ private extension ButtonView {
         }
     }
 }
+
 private extension ButtonView {
     func setupLayout() {
         addSubview(button)
@@ -116,19 +121,19 @@ private extension ButtonView {
         timerLabel.translatesAutoresizingMaskIntoConstraints = false
         timerLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         timerLabel.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -50).isActive = true
-        
+        timerLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        timerLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-    func beginAnimation() {
-        UIView.animate(withDuration: 1.0, delay:0, options: [.repeat, .autoreverse,.allowUserInteraction], animations: {
-//             UIView.setAnimationRepeatCount(3)
-             self.button.transform = CGAffineTransformMakeScale(1.2, 1.2)
-             }, completion: {completion in
-                 self.button.transform = CGAffineTransformMakeScale(1, 1)
-         })
+    func beginAnimation(childView: UIView) {
+        UIView.animate(withDuration: 1.0, delay: 0, options: [.repeat, .autoreverse, .allowUserInteraction], animations: {
+            childView.transform = CGAffineTransformMakeScale(1.2, 1.2)
+        }, completion: { _ in
+            childView.transform = CGAffineTransformMakeScale(1, 1)
+        })
         let opacityAnimation = opacityAnimation()
-        button.layer.add(opacityAnimation, forKey: "animateOpacity")
-     }
+        childView.layer.add(opacityAnimation, forKey: "animateOpacity")
+    }
     
     func opacityAnimation() -> CABasicAnimation {
         let pulseAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
@@ -140,18 +145,4 @@ private extension ButtonView {
         pulseAnimation.repeatCount = .greatestFiniteMagnitude
         return pulseAnimation
     }
-    
-    func createCircularLayer() -> CAShapeLayer {
-        let layer = CAShapeLayer()
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: 110, startAngle: 0, endAngle: 2*CGFloat.pi, clockwise: true)
-        layer.path = circularPath.cgPath
-        layer.strokeColor = UIColor.clear.cgColor
-        layer.lineWidth = 10
-        layer.fillColor = UIColor.red.cgColor
-//        layer.line = car
-        layer.position = button.center
-        return layer
-    }
-    
-    
 }

@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Energise
+
+  Created by Andrew Kasilov on 29.04.2024.
+  
+*/
+"playButton" = "Play";
+"pauseButton" = "Pause";

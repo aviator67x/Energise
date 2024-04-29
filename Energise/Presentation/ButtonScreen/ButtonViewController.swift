@@ -2,13 +2,13 @@
 //  ButtonViewController.swift
 //  Energise
 //
-//  Created by Andrew Kasilov on 28.04.2024.
+//  Created by Andrew Kasilov on 29.04.2024.
 //
 
 import UIKit
 
 class ButtonViewController: UIViewController {
-// - MARK: private
+    // - MARK: private
     private let buttonView = ButtonView()
     private let buttonModel = ButtonModel()
 
@@ -22,7 +22,6 @@ class ButtonViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }
 
@@ -35,6 +34,7 @@ extension ButtonViewController: ButtonViewProtocol {
             buttonModel.startTimer()
         case .pause:
             buttonView.pause()
+            buttonModel.stopTimer()
         }
     }
 }

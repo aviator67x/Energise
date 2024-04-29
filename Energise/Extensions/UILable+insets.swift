@@ -2,7 +2,7 @@
 //  UILable+insets.swift
 //  Energise
 //
-//  Created by Andrew Kasilov on 28.04.2024.
+//  Created by Andrew Kasilov on 29.04.2024.
 //
 
 import UIKit
