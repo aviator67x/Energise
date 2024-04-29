@@ -8,32 +8,39 @@
 import UIKit
 
 class MapViewController: UIViewController {
-//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-//        super.init(nibName: nil, bundle: nil)
-//        tabBarItem = UITabBarItem(title: "Map", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map"))
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder)
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    // - MARK: private
+    private let mapView = MapView()
+    private let mapModel = MapModel()
+
+    // - MARK: lifecycle
+    override func loadView() {
+        super.loadView()
+        view = mapView
+        mapView.delegate = self
+        mapModel.delegate = self
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
        
-        // Do any additional setup after loading the view.
+      getPlaces()
     }
+}
+
+private extension MapViewController {
+    func getPlaces() {
+        mapModel.getPlaces()
+    }
+}
+
+// - MARK:  MapViewProtocol
+extension MapViewController: MapViewProtocol {
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// - MARK:  MapModelProtocol
+extension MapViewController: MapModelProtocol {
+    func show(places: [ResponseModel]) {
+        mapView.show(places: places)
     }
-    */
-
 }
