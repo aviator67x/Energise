@@ -31,4 +31,6 @@ final class MapModel {
             strongSelf.delegate?.show(places: strongSelf.places)
         }
     }
+    
+    func reloadData() {}
 }

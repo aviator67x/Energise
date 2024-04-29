@@ -23,7 +23,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-      getPlaces()
+//      getPlaces()
     }
 }
 
@@ -35,6 +35,13 @@ private extension MapViewController {
 
 // - MARK:  MapViewProtocol
 extension MapViewController: MapViewProtocol {
+    func subviews(action: MapViewAction) {
+        switch action {
+        case .reloadData:
+            mapModel.reloadData()
+        }
+    }
+    
     
 }
 

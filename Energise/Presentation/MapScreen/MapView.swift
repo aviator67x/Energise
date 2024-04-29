@@ -10,21 +10,20 @@ import MapKit
 import UIKit
 
 protocol MapViewProtocol: AnyObject {
-//    func onButtonTap(action: ButtonViewAction)
+    func subviews(action: MapViewAction)
 }
 
 enum MapViewAction {
-//    case play
-//    case pause
+    case reloadData
 }
 
 final class MapView: UIView {
     // - MARK: views
-   private lazy var mapView: MKMapView = {
+    private lazy var mapView: MKMapView = {
         let map = MKMapView()
         return map
     }()
-    
+
     private lazy var detailsLabel: UILabel = {
         let label = InsetLabel()
         label.font = UIFont.systemFont(ofSize: 18)
@@ -34,6 +33,29 @@ final class MapView: UIView {
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
+    }()
+
+    private lazy var reloadButton: UIButton = {
+        var configuration = UIButton.Configuration.filled()
+        var container = AttributeContainer()
+        container.font = UIFont.boldSystemFont(ofSize: 30)
+        configuration.attributedTitle = AttributedString("Reload", attributes: container)
+        configuration.titlePadding = 10
+        configuration.baseBackgroundColor = .blue
+        let button = UIButton(configuration: configuration)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
+
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
+        return refreshControl
     }()
 
     // - MARK: internal
@@ -56,7 +78,20 @@ final class MapView: UIView {
             showDetails(of: place)
             showOnMap(place: place)
         }
-    }    
+    }
+}
+
+// - MARK: @objc
+private extension MapView {
+    @objc
+    func buttonAction() {
+        delegate?.subviews(action: .reloadData)
+    }
+
+    @objc
+    func refreshControlAction() {
+        delegate?.subviews(action: .reloadData)
+    }
 }
 
 private extension MapView {
@@ -75,35 +110,49 @@ private extension MapView {
 
         mapView.addAnnotation(annotation)
     }
-    
+
     func showDetails(of place: ResponseModel) {
         let labelText = """
 
-Name of country: \(place.country) \n
-Country code: \(place.countryCode) \n
-Region name: \(place.regionName) \n
-Post code: \(place.zip) \n
-City: \(place.city) \n
-Latitude: \(place.lat) \n
-Longitude: \(place.lon) \n
-Time zone: \(place.timezone) \n
-Telecommunication provider: \(place.org) \n
+        Name of country: \(place.country) \n
+        Country code: \(place.countryCode) \n
+        Region name: \(place.regionName) \n
+        Post code: \(place.zip) \n
+        City: \(place.city) \n
+        Latitude: \(place.lat) \n
+        Longitude: \(place.lon) \n
+        Time zone: \(place.timezone) \n
+        Telecommunication provider: \(place.org) \n
 
-"""
+        """
 
         detailsLabel.text = labelText
     }
+
     func setupLayout() {
-        addSubview(mapView)
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        mapView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        mapView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        mapView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        
-        addSubview(detailsLabel) {
-            $0.top.equalTo(mapView.snp.bottom).offset(20)
-            $0.leading.trailing.bottom.equalTo(safeAreaLayoutGuide)
+        addSubview(mapView) {
+            $0.leading.top.trailing.equalToSuperview()
+            $0.height.equalTo(200)
         }
+
+        addSubview(scrollView) {
+            $0.top.equalTo(mapView.snp.bottom)
+            $0.leading.trailing.width.equalToSuperview()
+            $0.bottom.equalTo(safeAreaLayoutGuide)
+        }
+
+        scrollView.addSubview(reloadButton) {
+            $0.leading.trailing.bottom.equalToSuperview().inset(16)
+            $0.height.equalTo(50)
+        }
+
+        scrollView.addSubview(detailsLabel) {
+            $0.top.width.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(500)
+            $0.bottom.equalTo(reloadButton.snp.top).offset(-20)
+        }
+
+        scrollView.addSubview(refreshControl)
     }
 }
