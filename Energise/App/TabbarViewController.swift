@@ -21,7 +21,7 @@ private extension TabbarViewController {
 
         let buttonViewController = UINavigationController(rootViewController: ButtonViewController())
         let mapViewController = UINavigationController(rootViewController: MapViewController())
-        let tableViewController = UINavigationController(rootViewController: TableViewController())
+        let tableViewController = UINavigationController(rootViewController: TableScreenViewController())
 
         buttonViewController.tabBarItem = UITabBarItem(
             title: "Button",

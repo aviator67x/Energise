@@ -94,6 +94,7 @@ private extension MapView {
     }
 }
 
+// - MARK: private extension
 private extension MapView {
     func showOnMap(place: ResponseModel) {
         let latitude = place.lat

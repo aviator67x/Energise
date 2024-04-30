@@ -15,6 +15,11 @@
 		A270A1BF2BDFBFEA00C3E585 /* UIView+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A270A1BE2BDFBFEA00C3E585 /* UIView+layout.swift */; };
 		A2BC6E482BDEF046003755BC /* UILable+insets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC6E472BDEF046003755BC /* UILable+insets.swift */; };
 		A2BC6E4D2BDEF183003755BC /* ButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC6E4C2BDEF183003755BC /* ButtonModel.swift */; };
+		A2C68EE52BE0EF2100FC33FE /* TableScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C68EE42BE0EF2100FC33FE /* TableScreenView.swift */; };
+		A2C68EE72BE0EF7400FC33FE /* TableScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C68EE62BE0EF7400FC33FE /* TableScreenModel.swift */; };
+		A2C68EED2BE0F28A00FC33FE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C68EEC2BE0F28A00FC33FE /* TableViewCell.swift */; };
+		A2C68EEF2BE0F77C00FC33FE /* UITableView+dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C68EEE2BE0F77C00FC33FE /* UITableView+dequeue.swift */; };
+		A2C68EF12BE0F78700FC33FE /* TableView+reusedIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C68EF02BE0F78700FC33FE /* TableView+reusedIdentifier.swift */; };
 		A2C7D3932BDE8ED6003B4281 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3922BDE8ED6003B4281 /* AppDelegate.swift */; };
 		A2C7D3952BDE8ED6003B4281 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3942BDE8ED6003B4281 /* SceneDelegate.swift */; };
 		A2C7D3972BDE8ED6003B4281 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3962BDE8ED6003B4281 /* ViewController.swift */; };
@@ -22,7 +27,7 @@
 		A2C7D39F2BDE8ED7003B4281 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2C7D39D2BDE8ED7003B4281 /* LaunchScreen.storyboard */; };
 		A2C7D3A72BDE8EF4003B4281 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3A62BDE8EF4003B4281 /* ButtonViewController.swift */; };
 		A2C7D3A92BDE9043003B4281 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3A82BDE9043003B4281 /* MapViewController.swift */; };
-		A2C7D3AB2BDE91C5003B4281 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3AA2BDE91C5003B4281 /* TableViewController.swift */; };
+		A2C7D3AB2BDE91C5003B4281 /* TableScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3AA2BDE91C5003B4281 /* TableScreenViewController.swift */; };
 		A2C7D3AD2BDE9CB5003B4281 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3AC2BDE9CB5003B4281 /* TabbarViewController.swift */; };
 		A2C7D3B22BDEA9B1003B4281 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3B12BDEA9B1003B4281 /* ButtonView.swift */; };
 		A2C7D3B92BDEB055003B4281 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A2C7D3B82BDEB055003B4281 /* SnapKit */; };
@@ -38,6 +43,11 @@
 		A270A1BE2BDFBFEA00C3E585 /* UIView+layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+layout.swift"; sourceTree = "<group>"; };
 		A2BC6E472BDEF046003755BC /* UILable+insets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILable+insets.swift"; sourceTree = "<group>"; };
 		A2BC6E4C2BDEF183003755BC /* ButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModel.swift; sourceTree = "<group>"; };
+		A2C68EE42BE0EF2100FC33FE /* TableScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableScreenView.swift; sourceTree = "<group>"; };
+		A2C68EE62BE0EF7400FC33FE /* TableScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableScreenModel.swift; sourceTree = "<group>"; };
+		A2C68EEC2BE0F28A00FC33FE /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		A2C68EEE2BE0F77C00FC33FE /* UITableView+dequeue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+dequeue.swift"; sourceTree = "<group>"; };
+		A2C68EF02BE0F78700FC33FE /* TableView+reusedIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView+reusedIdentifier.swift"; sourceTree = "<group>"; };
 		A2C7D38F2BDE8ED6003B4281 /* Energise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Energise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2C7D3922BDE8ED6003B4281 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2C7D3942BDE8ED6003B4281 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +57,7 @@
 		A2C7D3A02BDE8ED7003B4281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2C7D3A62BDE8EF4003B4281 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
 		A2C7D3A82BDE9043003B4281 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		A2C7D3AA2BDE91C5003B4281 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		A2C7D3AA2BDE91C5003B4281 /* TableScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableScreenViewController.swift; sourceTree = "<group>"; };
 		A2C7D3AC2BDE9CB5003B4281 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		A2C7D3B12BDEA9B1003B4281 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +98,8 @@
 		A2BC6E462BDEF01E003755BC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A2C68EEE2BE0F77C00FC33FE /* UITableView+dequeue.swift */,
+				A2C68EF02BE0F78700FC33FE /* TableView+reusedIdentifier.swift */,
 				A270A1BE2BDFBFEA00C3E585 /* UIView+layout.swift */,
 				A2BC6E472BDEF046003755BC /* UILable+insets.swift */,
 			);
@@ -109,6 +121,7 @@
 			children = (
 				A2BC6E4B2BDEF158003755BC /* ButtonScreen */,
 				A270A1B42BDFA74A00C3E585 /* MapScreen */,
+				A2C68EE32BE0EEBC00FC33FE /* TableScreen */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -121,6 +134,17 @@
 				A2BC6E4C2BDEF183003755BC /* ButtonModel.swift */,
 			);
 			path = ButtonScreen;
+			sourceTree = "<group>";
+		};
+		A2C68EE32BE0EEBC00FC33FE /* TableScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A2C7D3AA2BDE91C5003B4281 /* TableScreenViewController.swift */,
+				A2C68EE42BE0EF2100FC33FE /* TableScreenView.swift */,
+				A2C68EE62BE0EF7400FC33FE /* TableScreenModel.swift */,
+				A2C68EEC2BE0F28A00FC33FE /* TableViewCell.swift */,
+			);
+			path = TableScreen;
 			sourceTree = "<group>";
 		};
 		A2C7D3862BDE8ED6003B4281 = {
@@ -149,7 +173,6 @@
 				A2C7D3A02BDE8ED7003B4281 /* Info.plist */,
 				A2C7D39D2BDE8ED7003B4281 /* LaunchScreen.storyboard */,
 				A2C7D3962BDE8ED6003B4281 /* ViewController.swift */,
-				A2C7D3AA2BDE91C5003B4281 /* TableViewController.swift */,
 			);
 			path = Energise;
 			sourceTree = "<group>";
@@ -238,12 +261,17 @@
 				A270A1BF2BDFBFEA00C3E585 /* UIView+layout.swift in Sources */,
 				A2BC6E482BDEF046003755BC /* UILable+insets.swift in Sources */,
 				A2C7D3A72BDE8EF4003B4281 /* ButtonViewController.swift in Sources */,
-				A2C7D3AB2BDE91C5003B4281 /* TableViewController.swift in Sources */,
+				A2C68EF12BE0F78700FC33FE /* TableView+reusedIdentifier.swift in Sources */,
+				A2C7D3AB2BDE91C5003B4281 /* TableScreenViewController.swift in Sources */,
+				A2C68EED2BE0F28A00FC33FE /* TableViewCell.swift in Sources */,
 				A270A1B62BDFA83F00C3E585 /* MapView.swift in Sources */,
 				A270A1B82BDFADA800C3E585 /* MapModel.swift in Sources */,
 				A2C7D3B22BDEA9B1003B4281 /* ButtonView.swift in Sources */,
 				A2C7D3AD2BDE9CB5003B4281 /* TabbarViewController.swift in Sources */,
 				A2C7D3972BDE8ED6003B4281 /* ViewController.swift in Sources */,
+				A2C68EE52BE0EF2100FC33FE /* TableScreenView.swift in Sources */,
+				A2C68EE72BE0EF7400FC33FE /* TableScreenModel.swift in Sources */,
+				A2C68EEF2BE0F77C00FC33FE /* UITableView+dequeue.swift in Sources */,
 				A2C7D3932BDE8ED6003B4281 /* AppDelegate.swift in Sources */,
 				A270A1BD2BDFB94000C3E585 /* ResponseModel.swift in Sources */,
 				A2BC6E4D2BDEF183003755BC /* ButtonModel.swift in Sources */,
