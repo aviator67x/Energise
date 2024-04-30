@@ -28,14 +28,14 @@ final class ButtonView: UIView {
         var configuration = UIButton.Configuration.filled()
         var container = AttributeContainer()
         container.font = UIFont.boldSystemFont(ofSize: 30)
-        configuration.attributedTitle = AttributedString("Play", attributes: container)
+        configuration.attributedTitle = AttributedString(NSLocalizedString("playButton", comment: ""), attributes: container)
         configuration.image = UIImage(systemName: "play.fill")
         configuration.imagePlacement = .top
         configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 60)
         configuration.titlePadding = 10
         configuration.imagePadding = 10
         configuration.background.cornerRadius = 100
-        configuration.baseBackgroundColor = .blue
+        configuration.baseBackgroundColor = .orange
         let button = UIButton(configuration: configuration)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
@@ -44,7 +44,7 @@ final class ButtonView: UIView {
     private lazy var timerLabel: InsetLabel = {
         let label = InsetLabel()
         label.font = UIFont.systemFont(ofSize: 28)
-        label.backgroundColor = .blue
+        label.backgroundColor = .orange
         label.textColor = .white
         label.text = "00:00:00"
         label.textAlignment = .center
@@ -60,7 +60,7 @@ final class ButtonView: UIView {
     // - MARK: Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .green
+        backgroundColor = .lightGray
         setupLayout()
     }
 
@@ -69,14 +69,18 @@ final class ButtonView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func animateButton() {
+        beginAnimation(childView: button)
+    }
+    
     func play() {
         var container = AttributeContainer()
         container.font = UIFont.boldSystemFont(ofSize: 30)
         button.configuration?.attributedTitle = AttributedString("Pause", attributes: container)
         button.configuration?.image = UIImage(systemName: "pause.fill")
         
-        timerLabel.layer.removeAllAnimations()
-        beginAnimation(childView: button)
+        beginAnimation(childView: timerLabel)
+        button.layer.removeAllAnimations()
     }
     
     func pause() {
@@ -84,9 +88,8 @@ final class ButtonView: UIView {
         container.font = UIFont.boldSystemFont(ofSize: 30)
         button.configuration?.attributedTitle = AttributedString("Play", attributes: container)
         button.configuration?.image = UIImage(systemName: "play.fill")
-        
-        button.layer.removeAllAnimations()
-        beginAnimation(childView: timerLabel)
+
+        timerLabel.layer.removeAllAnimations()
     }
     
     func updateTimerLabel(_ time: String) {

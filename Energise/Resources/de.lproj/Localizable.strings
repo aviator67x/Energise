@@ -5,3 +5,19 @@
   Created by Andrew Kasilov on 29.04.2024.
   
 */
+"playButton" = "Spielen";
+"pauseButton" = "Pause";
+"name_of_country" = "Name des Landes";
+"country_code" = "Code des Landes";
+"region_name" = "Regionsname";
+"post_code" = "Postleitzahl";
+"city" = "Stadt";
+"latitude" = "Latitude";
+"longitude" = "Longitude";
+"time_zone" = "Zeitzone";
+"tele_provider" = "Telekommunikationsanbieter";
+"reload" = "Uberlast";
+"rate" = "Rate App";
+"share" = "Teilen App";
+"contact" = "Kontaktiere uns";
+

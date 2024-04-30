@@ -7,3 +7,17 @@
 */
 "playButton" = "Play";
 "pauseButton" = "Pause";
+"name_of_country" = "Name of country";
+"country_code" = "Country code";
+"region_name" = "Region name";
+"post_code" = "Post code";
+"city" = "City";
+"latitude" = "Latitude";
+"longitude" = "Longitude";
+"time_zone" = "Time zone";
+"tele_provider" = "Telecommunication provider";
+"reload" = "Reload";
+"rate" = "Rate App";
+"share" = "Share App";
+"contact" = "Contact us";
+

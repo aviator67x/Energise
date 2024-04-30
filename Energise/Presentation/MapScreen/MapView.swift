@@ -27,7 +27,7 @@ final class MapView: UIView {
     private lazy var detailsLabel: UILabel = {
         let label = InsetLabel()
         label.font = UIFont.systemFont(ofSize: 18)
-        label.backgroundColor = .blue
+        label.backgroundColor = .lightGray
         label.textColor = .white
         label.text = "00:00:00"
         label.textAlignment = .center
@@ -39,9 +39,9 @@ final class MapView: UIView {
         var configuration = UIButton.Configuration.filled()
         var container = AttributeContainer()
         container.font = UIFont.boldSystemFont(ofSize: 30)
-        configuration.attributedTitle = AttributedString("Reload", attributes: container)
+        configuration.attributedTitle = AttributedString(NSLocalizedString("reload", comment: ""), attributes: container)
         configuration.titlePadding = 10
-        configuration.baseBackgroundColor = .blue
+        configuration.baseBackgroundColor = .orange
         let button = UIButton(configuration: configuration)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
@@ -64,7 +64,7 @@ final class MapView: UIView {
     // - MARK: Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .yellow
+        backgroundColor = .lightGray
         setupLayout()
     }
 
@@ -73,11 +73,15 @@ final class MapView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func show(places: [ResponseModel]) {
-        for place in places {
-            showDetails(of: place)
-            showOnMap(place: place)
-        }
+    func animate() {
+        UIView.animate(withDuration: 1.0, animations: {
+            self.mapView.frame.size.height += 200
+        })
+    }
+
+    func show(place: ResponseModel) {
+        showDetails(of: place)
+        showOnMap(place: place)
     }
 }
 
@@ -99,7 +103,7 @@ private extension MapView {
     func showOnMap(place: ResponseModel) {
         let latitude = place.lat
         let longitude = place.lon
-        let address = "\(place.regionName) + \(place.zip) +\(place.city)"
+        let address = "\(place.regionName)  \(place.zip) \(place.city)"
         let houseLocation = CLLocationCoordinate2D(
             latitude: latitude,
             longitude: longitude
@@ -115,15 +119,15 @@ private extension MapView {
     func showDetails(of place: ResponseModel) {
         let labelText = """
 
-        Name of country: \(place.country) \n
-        Country code: \(place.countryCode) \n
-        Region name: \(place.regionName) \n
-        Post code: \(place.zip) \n
-        City: \(place.city) \n
-        Latitude: \(place.lat) \n
-        Longitude: \(place.lon) \n
-        Time zone: \(place.timezone) \n
-        Telecommunication provider: \(place.org) \n
+                \(NSLocalizedString("name_of_country", comment: "")): \(place.country) \n
+                \(NSLocalizedString("country_code", comment: "")): \(place.countryCode) \n
+                \(NSLocalizedString("region_name", comment: "")): \(place.regionName) \n
+                \(NSLocalizedString("post_code", comment: "")): \(place.zip) \n
+                \(NSLocalizedString("city", comment: "")): \(place.city) \n
+                \(NSLocalizedString("latitude", comment: "")): \(place.lat) \n
+                \(NSLocalizedString("longitude", comment: "")): \(place.lon) \n
+                \(NSLocalizedString("time_zone", comment: "")): \(place.timezone) \n
+                \(NSLocalizedString("tele_provider", comment: "")): \(place.org) \n
 
         """
 

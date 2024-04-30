@@ -20,6 +20,7 @@
 		A2C68EED2BE0F28A00FC33FE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C68EEC2BE0F28A00FC33FE /* TableViewCell.swift */; };
 		A2C68EEF2BE0F77C00FC33FE /* UITableView+dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C68EEE2BE0F77C00FC33FE /* UITableView+dequeue.swift */; };
 		A2C68EF12BE0F78700FC33FE /* TableView+reusedIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C68EF02BE0F78700FC33FE /* TableView+reusedIdentifier.swift */; };
+		A2C68EF32BE18BF100FC33FE /* CacheDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C68EF22BE18BF100FC33FE /* CacheDataModel.swift */; };
 		A2C7D3932BDE8ED6003B4281 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3922BDE8ED6003B4281 /* AppDelegate.swift */; };
 		A2C7D3952BDE8ED6003B4281 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3942BDE8ED6003B4281 /* SceneDelegate.swift */; };
 		A2C7D3972BDE8ED6003B4281 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7D3962BDE8ED6003B4281 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		A2C68EEC2BE0F28A00FC33FE /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		A2C68EEE2BE0F77C00FC33FE /* UITableView+dequeue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+dequeue.swift"; sourceTree = "<group>"; };
 		A2C68EF02BE0F78700FC33FE /* TableView+reusedIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView+reusedIdentifier.swift"; sourceTree = "<group>"; };
+		A2C68EF22BE18BF100FC33FE /* CacheDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataModel.swift; sourceTree = "<group>"; };
 		A2C7D38F2BDE8ED6003B4281 /* Energise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Energise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2C7D3922BDE8ED6003B4281 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2C7D3942BDE8ED6003B4281 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				A270A1B52BDFA83F00C3E585 /* MapView.swift */,
 				A270A1B72BDFADA800C3E585 /* MapModel.swift */,
 				A270A1BC2BDFB93F00C3E585 /* ResponseModel.swift */,
+				A2C68EF22BE18BF100FC33FE /* CacheDataModel.swift */,
 			);
 			path = MapScreen;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				A270A1BF2BDFBFEA00C3E585 /* UIView+layout.swift in Sources */,
 				A2BC6E482BDEF046003755BC /* UILable+insets.swift in Sources */,
+				A2C68EF32BE18BF100FC33FE /* CacheDataModel.swift in Sources */,
 				A2C7D3A72BDE8EF4003B4281 /* ButtonViewController.swift in Sources */,
 				A2C68EF12BE0F78700FC33FE /* TableView+reusedIdentifier.swift in Sources */,
 				A2C7D3AB2BDE91C5003B4281 /* TableScreenViewController.swift in Sources */,

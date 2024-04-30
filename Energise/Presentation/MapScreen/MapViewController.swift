@@ -19,11 +19,16 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         mapModel.delegate = self
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-//      getPlaces()
+
+        getPlaces()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        mapView.animate()
     }
 }
 
@@ -38,16 +43,14 @@ extension MapViewController: MapViewProtocol {
     func subviews(action: MapViewAction) {
         switch action {
         case .reloadData:
-            mapModel.reloadData()
+            mapModel.getPlaces()
         }
     }
-    
-    
 }
 
 // - MARK:  MapModelProtocol
 extension MapViewController: MapModelProtocol {
-    func show(places: [ResponseModel]) {
-        mapView.show(places: places)
+    func show(place: ResponseModel) {
+        mapView.show(place: place)
     }
 }

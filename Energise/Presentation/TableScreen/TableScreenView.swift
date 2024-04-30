@@ -34,9 +34,9 @@ final class TableScreenView: UIView {
 
     // - MARK: internal
     weak var delegate: TableScreenViewProtocol?
-    
+
     // - MARK: private
-    private let tableData = ["Rate App", "Share App", "Contact us" ]
+    private let tableData = [NSLocalizedString("rate", comment: ""), NSLocalizedString("share", comment: ""), NSLocalizedString("contact", comment: "")]
 
     // - MARK: Lifecycle
     override init(frame: CGRect) {
@@ -53,7 +53,7 @@ final class TableScreenView: UIView {
 
 // - MARK: private extension
 private extension TableScreenView {
-    func  setupLayout() {
+    func setupLayout() {
         addSubview(tableView) {
             $0.top.bottom.equalToSuperview().offset(200)
             $0.leading.trailing.equalToSuperview().inset(16)
@@ -66,14 +66,14 @@ extension TableScreenView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: TableViewCell = tableView.dequeueReusableCell(for: indexPath)
         let title = tableData[indexPath.row]
         cell.setupCell(title: title)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
@@ -84,11 +84,11 @@ extension TableScreenView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            self.delegate?.subviews(action: .rate)
+            delegate?.subviews(action: .rate)
         case 1:
-            self.delegate?.subviews(action: .share)
+            delegate?.subviews(action: .share)
         case 2:
-            self.delegate?.subviews(action: .contact)
+            delegate?.subviews(action: .contact)
         default:
             break
         }

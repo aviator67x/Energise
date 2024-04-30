@@ -17,13 +17,10 @@ class TableScreenViewController: UIViewController {
         super.loadView()
         view = tableScreenView
         tableScreenView.delegate = self
-//        tableScreenModel.delegate = self
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 }
 
@@ -52,20 +49,16 @@ private extension TableScreenViewController {
         let activityViewController = UIActivityViewController(
             activityItems: [comment, image], applicationActivities: nil)
 
-//        activityViewController.activityItemsConfiguration = [
-//            UIActivity.ActivityType.message
-//        ] as? UIActivityItemsConfigurationReading
-
         activityViewController.excludedActivityTypes = [
-//            UIActivity.ActivityType.postToWeibo,
-//            UIActivity.ActivityType.print,
-//            UIActivity.ActivityType.assignToContact,
-//            UIActivity.ActivityType.saveToCameraRoll,
-//            UIActivity.ActivityType.addToReadingList,
-//            UIActivity.ActivityType.postToFlickr,
-//            UIActivity.ActivityType.postToVimeo,
-//            UIActivity.ActivityType.postToTencentWeibo,
-//            UIActivity.ActivityType.postToFacebook
+            UIActivity.ActivityType.postToWeibo,
+            UIActivity.ActivityType.print,
+            UIActivity.ActivityType.assignToContact,
+            UIActivity.ActivityType.saveToCameraRoll,
+            UIActivity.ActivityType.addToReadingList,
+            UIActivity.ActivityType.postToFlickr,
+            UIActivity.ActivityType.postToVimeo,
+            UIActivity.ActivityType.postToTencentWeibo,
+            UIActivity.ActivityType.postToFacebook
         ]
 
         activityViewController.isModalInPresentation = true
